@@ -1,9 +1,0 @@
-#!/bin/bash
-
-case $PAGEGEN_ENVIRONMENT in
-  prod)
-    echo Deploying to github pages..
-    git subtree push --prefix site/prod origin gh-pages
-  ;;
-esac
-
