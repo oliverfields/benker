@@ -1,1 +1,3 @@
-http://localhost:8000http://localhost:8000/index.html
+https://benker.phnd.nethttps://benker.phnd.net/
+https://benker.phnd.nethttps://benker.phnd.net/benk
+https://benker.phnd.nethttps://benker.phnd.net/benk/1.html
