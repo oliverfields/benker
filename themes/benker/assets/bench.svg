@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="16.262mm" height="11.551mm" version="1.1" viewBox="0 0 16.262 11.551" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="clipPath811">
+   <path d="m3306.5 1899.7v-57.88l15.57 8.99v57.88z"/>
+  </clipPath>
+  <linearGradient id="linearGradient817" x2="1" gradientTransform="matrix(15.567 0 0 -15.567 3306.5 1875.3)" gradientUnits="userSpaceOnUse">
+   <stop style="stop-color:#5c3a38" offset="0"/>
+   <stop style="stop-color:#412824" offset="1"/>
+  </linearGradient>
+  <clipPath id="clipPath833">
+   <path d="m2916.6 1767.7v-43.08l14.78-8.55v43.1z"/>
+  </clipPath>
+  <linearGradient id="linearGradient841" x2="1" gradientTransform="matrix(14.777 0 0 -14.777 2916.6 1741.8)" gradientUnits="userSpaceOnUse">
+   <stop style="stop-color:#d3acb7" offset="0"/>
+   <stop style="stop-color:#cabfaf" offset=".15972"/>
+   <stop style="stop-color:#906c66" offset="1"/>
+  </linearGradient>
+  <clipPath id="clipPath851">
+   <path d="m2931.3 1759.1v-43.1l15.56 8.99v25.13z"/>
+  </clipPath>
+  <linearGradient id="linearGradient857" x2="1" gradientTransform="matrix(15.567 0 0 -15.567 2931.3 1737.6)" gradientUnits="userSpaceOnUse">
+   <stop style="stop-color:#5c3a38" offset="0"/>
+   <stop style="stop-color:#412824" offset="1"/>
+  </linearGradient>
+  <clipPath id="clipPath867">
+   <path d="m2997.1 1721.1-1.97 1.16v-43.08l14.77-8.56v57.89z"/>
+  </clipPath>
+  <linearGradient id="linearGradient875" x2="1" gradientTransform="matrix(14.776 0 0 -14.776 2995.2 1699.6)" gradientUnits="userSpaceOnUse">
+   <stop style="stop-color:#d3acb7" offset="0"/>
+   <stop style="stop-color:#cabfaf" offset=".15972"/>
+   <stop style="stop-color:#906c66" offset="1"/>
+  </linearGradient>
+  <clipPath id="clipPath885">
+   <path d="m3009.9 1728.5v-57.89l15.57 9v57.88z"/>
+  </clipPath>
+  <linearGradient id="linearGradient891" x2="1" gradientTransform="matrix(15.567 0 0 -15.567 3009.9 1704.1)" gradientUnits="userSpaceOnUse">
+   <stop style="stop-color:#5c3a38" offset="0"/>
+   <stop style="stop-color:#412824" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-44.905 -134.35)">
+  <path d="m59.117 138.12v1.4393l0.52141 0.30057v-2.0419l-0.52141 0.30198" style="fill:#d5b892"/>
+  <g transform="matrix(.035278 0 0 -.035278 -57.006 204.84)">
+   <g clip-path="url(#clipPath811)">
+    <path d="m3306.5 1899.7v-57.88l15.57 8.99v57.88l-15.57-8.99" style="fill:url(#linearGradient817)"/>
+   </g>
+  </g>
+  <path d="m59.886 135.82-0.55174-0.31855-0.42086 0.24377v-0.48719l-1.5677-0.90558-12.441 7.1826 1.5674 0.90523 0.42157 0.24377 1.8323 1.058 12.441-7.1826-1.2813-0.73943" style="fill:#e2a65d"/>
+  <path d="m48.726 143.74v0.3803l0.45156-0.26141 0.54928-0.31715 9.3902-5.4204 0.52141-0.30198 0.54928-0.31714 0.97931-0.56445v-0.38029l-12.441 7.1826" style="fill:#79542e"/>
+  <path d="m46.894 142.68-0.42157-0.24377-1.5674-0.90523v0.3803l0.97896 0.5655 1.0703 0.61772 1.7025 0.98283 0.0695 0.0409v-0.3803l-1.8323-1.058" style="fill:#dc9a54"/>
+  <g transform="matrix(.035278 0 0 -.035278 -57.006 204.84)">
+   <g clip-path="url(#clipPath833)">
+    <path d="m2916.6 1767.7v-43.08l14.78-8.55v43.1l-14.78 8.53" style="fill:url(#linearGradient841)"/>
+   </g>
+  </g>
+  <g transform="matrix(.035278 0 0 -.035278 -57.006 204.84)">
+   <g clip-path="url(#clipPath851)">
+    <path d="m2931.3 1759.1v-43.1l15.56 8.99v25.13l-15.56 8.98" style="fill:url(#linearGradient857)"/>
+   </g>
+  </g>
+  <g transform="matrix(.035278 0 0 -.035278 -57.006 204.84)">
+   <g clip-path="url(#clipPath867)">
+    <path d="m2997.1 1721.1-1.97 1.16v-43.08l14.77-8.56v57.89l-12.8-7.41" style="fill:url(#linearGradient875)"/>
+   </g>
+  </g>
+  <g transform="matrix(.035278 0 0 -.035278 -57.006 204.84)">
+   <g clip-path="url(#clipPath885)">
+    <path d="m3009.9 1728.5v-57.89l15.57 9v57.88l-15.57-8.99" style="fill:url(#linearGradient891)"/>
+   </g>
+  </g>
+  <path d="m58.913 135.26v0.48719l-12.019 6.9388-0.42157-0.24377 12.441-7.1822" style="fill:#a14c3f"/>
+  <path d="m46.894 142.68v0.37924l-0.42157-0.24236v-0.38065l0.42157 0.24377" style="fill:#a14c3f"/>
+ </g>
+</svg>
