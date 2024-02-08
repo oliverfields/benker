@@ -1,9 +1,1 @@
 http://localhost:8000http://localhost:8000/index.html
-http://localhost:8000http://localhost:8000/restructuredtext-examples.html
-http://localhost:8000http://localhost:8000/vegetables/index.html
-http://localhost:8000http://localhost:8000/vegetables/cucumber.html
-http://localhost:8000http://localhost:8000/vegetables/beet.html
-http://localhost:8000http://localhost:8000/fruit/index.html
-http://localhost:8000http://localhost:8000/fruit/pear.html
-http://localhost:8000http://localhost:8000/fruit/banana.html
-http://localhost:8000http://localhost:8000/contact-us.html
