@@ -19,7 +19,7 @@
       <a href="https://krakeroy.lions.no"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
       <a href="/">Benker</a>
       <a href="/om.html">Om</a>
-      <a href="/bli-medlem.html">Om</a>
+      <a href="/bli-medlem.html">Bli medlem</a>
     </nav>
     <%block name="content" />
     <footer>

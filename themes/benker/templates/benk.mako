@@ -18,8 +18,6 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/nb_NO/sdk.js#xfbml=1&version=v19.0&appId=189030531161063" nonce="0qFDXtAd"></script>
 
-    <div class="fb-like" data-href="${url_encoded_url}" data-width="300" data-layout="" data-action="" data-size="" data-share="false"></div>
-
     <p>Del gjerne💙</p>
 
     <a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=${url_encoded_url}" target="_blank"><img src="/assets/theme/facebook-logo.svg" alt="Facebook" title="Facebook" /></a>
