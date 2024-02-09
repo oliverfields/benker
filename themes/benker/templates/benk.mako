@@ -20,7 +20,7 @@
 
     <div class="fb-like" data-href="${url_encoded_url}" data-width="300" data-layout="" data-action="" data-size="" data-share="false"></div>
 
-    <p>Del gjerne på sosialemedier:</p>
+    <p>Del gjerne💙</p>
 
     <a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=${url_encoded_url}" target="_blank"><img src="/assets/theme/facebook-logo.svg" alt="Facebook" title="Facebook" /></a>
 
