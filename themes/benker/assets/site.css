@@ -13,6 +13,10 @@ background-color: var(--bg-light);
 nav {
 background-color: var(--bg-dark);
 padding: .2em 1em;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
 }
 
 nav a {

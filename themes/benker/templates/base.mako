@@ -19,7 +19,7 @@
     </nav>
     <%block name="content" />
     <footer>
-      <p>© Lions Club Kråkerøy | Generert av <a href="https://pagegen.phnd.net"><img src="/assets/theme/pagegen_54x10.png" /></a>
+      <p>Lions Club Kråkerøy &copy; ${year} | Generert av <a href="https://pagegen.phnd.net"><img src="/assets/theme/pagegen_54x10.png" /></a>
     </footer>
   </body>
 </html>
