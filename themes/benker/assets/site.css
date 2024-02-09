@@ -7,18 +7,11 @@
 
 body {
 margin: 0;
-height: 100vh;
-width: 100%;
 background-color: var(--bg-light);
 }
 
 nav {
 background-color: var(--bg-dark);
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-z-index: 9999;
 padding: .2em 1em;
 }
 
@@ -35,33 +28,21 @@ text-decoration: none;
 color: var(--fg);
 }
 
-#map {
-width: 100%;
-height: 100%;
-}
-
-.leaflet-top {
-top: 60px !important;
-}
-
-.leaflet-bottom {
-bottom: 40px !important;
-}
-
 article {
 margin: 60px auto 40px auto;
 max-width: 994px;
-background-color: 
+padding: 0 .4em;
+font-family: var(--font);
 }
 
 footer {
 background-color: var(--bg-dark);
-position: absolute;
+text-align: center;
+position: fixed;
 bottom: 0;
 left: 0;
 width: 100%;
 z-index: 9999;
-text-align: center;
 }
 
 footer p {
@@ -79,6 +60,19 @@ font-weight: 400;
 padding: 8px 0 4px 0;
 }
 
-article {
-font-family: var(--font);
+.share-button {
+background-color: var(--bg-dark);
+border: solid 1px black;
+text-decoration: none;
+margin-right: 1em;
+border-radius: 50%;
+padding: .6em .5em .3em .5em;
 }
+
+.share-button img {
+height: 1em;
+}
+
+.sharing {
+clear: both;
+margin: 2.4em 0 3em 0;

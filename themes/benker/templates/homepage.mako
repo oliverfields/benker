@@ -1,6 +1,33 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
+  <style>
+body {
+height: 100vh;
+overflow: hidden;
+}
+
+nav {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 9999;
+}
+
+#map {
+width: 100%;
+height: 100%;
+}
+
+.leaflet-top {
+top: 60px !important;
+}
+
+.leaflet-bottom {
+bottom: 40px !important;
+}
+  </style>
   <div id="map"></div>
   <script>
 var map = L.map('map').setView([59.2133614, 10.9361604], 11);
@@ -30,7 +57,7 @@ const markers = []
 % for p in site.page_list:
    % if p.headers['template'] == 'benk.mako':
 markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['longitude']}]).addTo(map).on('click', function(evt) {
-  window.open('${p.url_path}', '_blank');
+  window.open('${p.url_path}', '_self');
 }));
   % endif
 % endfor
