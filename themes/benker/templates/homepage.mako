@@ -2,7 +2,6 @@
 
 <%block name="content">
   <div id="map"></div>
-  <a href="https://krakeroy.lions.no"><img id="map-logo" src="/assets/theme/lions-logo.svg" /></a>
   <script>
 var map = L.map('map').setView([59.2133614, 10.9361604], 11);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,7 +29,7 @@ const markers = []
 
 % for p in site.page_list:
    % if p.headers['template'] == 'benk.mako':
-markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['longitude']}], {icon: benchIcon}).addTo(map).on('click', function(evt) {
+markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['longitude']}]).addTo(map).on('click', function(evt) {
   window.open('${p.url_path}', '_blank');
 }));
   % endif

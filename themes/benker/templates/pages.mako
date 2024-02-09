@@ -4,7 +4,5 @@
   <article>
   <h1>${page.title}</h1>
   ${page.html}
-  Lat ${page.custom_headers['latitude']}
-  Lon ${page.custom_headers['longitude']}
   </article>
 </%block>

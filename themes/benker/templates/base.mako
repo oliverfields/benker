@@ -12,6 +12,14 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   </head>
   <body>
+    <nav>
+      <a href="https://krakeroy.lions.no"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
+      <a href="/">Benker</a>
+      <a href="/om.html">Om</a>
+    </nav>
     <%block name="content" />
+    <footer>
+      <p>© Lions Club Kråkerøy | Generert av <a href="https://pagegen.phnd.net"><img src="/assets/theme/pagegen_54x10.png" /></a>
+    </footer>
   </body>
 </html>
