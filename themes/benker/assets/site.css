@@ -80,3 +80,9 @@ height: 1em;
 .sharing {
 clear: both;
 margin: 2.4em 0 3em 0;
+}
+
+.article-picture img,
+.article-picture source {
+width: 100%;
+}

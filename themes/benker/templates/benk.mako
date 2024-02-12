@@ -9,12 +9,12 @@
   Lon ${page.custom_headers['longitude']}
 
   <%
-    img_large = site.shortcodes['benk_image_path'](site, page, 'benklarge')
-    img_small = site.shortcodes['benk_image_path'](site, page, 'benksmall')
+    img_desktop = site.shortcodes['benk_image_path'](site, page, 'desktop')
+    img_mobile = site.shortcodes['benk_image_path'](site, page, 'mobile')
   %>
-  <picture>
-    <source media="(min-width: 1000px)" srcset="${img_large}">
-    <img src="${img_small}" alt="IfItDoesntMatchAnyMedia">
+  <picture class="article-picture">
+    <source media="(min-width: 600px)" srcset="${img_desktop}">
+    <img src="${img_mobile}" />
   </picture>
   <%
     url_encoded_title = urllib.parse.quote(page.title, safe='')

@@ -6,6 +6,8 @@ def benk_image_path(site, page, image_class):
 
 	img_cache_name = 'benk-' + img_name + '_' + image_class + '.jpg'
 
+	print(img_cache_name)
+
 	# Return if we have this cached already
 	try:
 		return page.cache[img_cache_name]
@@ -22,6 +24,7 @@ def benk_image_path(site, page, image_class):
 	img_path_full = site.content_dir + img_path_relative_url
 
 	# Create image by class
+	print(img_path_full)
 	img_tag = site.shortcodes['image'](site, page, img_path_full, 'Benk', image_class=image_class)
 
 	# Save to cache
