@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+case $PAGEGEN_ENVIRONMENT in
+  prod)
+    cd "$PAGEGEN_DIR"
+    git add -A
+    git commit -am 'Deploy'
+    git push origin main:prod
+  ;;
+esac
