@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,9 +25,8 @@
   <body>
     <nav>
       <a href="https://krakeroy.lions.no"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
-      <a href="/">Benker</a>
-      <a href="/om.html">Om</a>
-      <a href="/bli-medlem.html">Bli medlem</a>
+      <a href="/">Benkene</a>
+      <a href="/prosjektet.html">Prosjektet</a>
     </nav>
     <%block name="content" />
     <footer>

@@ -4,22 +4,28 @@
 <%block name="content">
   <article>
   <h1>${page.title}</h1>
-  ${page.html}
-  Lat ${page.custom_headers['latitude']}
-  Lon ${page.custom_headers['longitude']}
 
   <%
     img_desktop = site.shortcodes['benk_image_path'](site, page, 'desktop')
     img_mobile = site.shortcodes['benk_image_path'](site, page, 'mobile')
   %>
-  <picture class="article-picture">
-    <source media="(min-width: 600px)" srcset="${img_desktop}">
-    <img src="${img_mobile}" />
-  </picture>
+  <div class="hero-image">
+    <picture class="article-picture">
+      <source media="(min-width: 600px)" srcset="${img_desktop}">
+      <img src="${img_mobile}" />
+    </picture>
+  % if 'hero caption' in page.custom_headers.keys():
+    <p>${page.custom_headers['hero caption']}</p>
+  % else:
+    <% print('Warning: ' + page.source_path + ' is missing hero caption header') %>
+  % endif
+  </div>
   <%
     url_encoded_title = urllib.parse.quote(page.title, safe='')
     url_encoded_url = urllib.parse.quote(page.absolute_url, safe='')
   %>
+
+  ${page.html}
 
   <div class="sharing">
 

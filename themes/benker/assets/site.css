@@ -86,3 +86,10 @@ margin: 2.4em 0 3em 0;
 .article-picture source {
 width: 100%;
 }
+
+.hero-image p {
+margin: 0 0 1em 0;
+padding: 0.6em 1em;
+text-align: center;
+background-color: var(--bg-dark);
+}
