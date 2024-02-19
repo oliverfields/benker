@@ -11,8 +11,8 @@
   %>
   <div class="hero-image">
     <picture class="article-picture">
-      <source media="(min-width: 600px)" srcset="${img_desktop}">
-      <img src="${img_mobile}" />
+      <source media="(min-width: 600px)" srcset="${img_desktop}" />
+      <img src="${img_mobile}" alt="${page.custom_headers['hero img alt text']}" />
     </picture>
   % if 'hero caption' in page.custom_headers.keys():
     <p>${page.custom_headers['hero caption']}</p>
