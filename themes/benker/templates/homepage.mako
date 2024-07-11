@@ -57,5 +57,13 @@ markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['long
 }));
   % endif
 % endfor
+
+map.on('click', function(e){
+  var coord = e.latlng;
+  var lat = coord.lat;
+  var lng = coord.lng;
+  console.log(lat + ", " + lng);
+  });
+
   </script>
 </%block>
