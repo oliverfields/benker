@@ -7,6 +7,6 @@ case $PAGEGEN_ENVIRONMENT in
     cd "$PAGEGEN_DIR"
     git add -A
     git commit -am 'Deploy'
-    git push origin main:prod
+    git push origin main:main
   ;;
 esac
