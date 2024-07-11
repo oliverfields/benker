@@ -32,8 +32,8 @@
   </head>
   <body>
     <nav>
-      <a href="https://krakeroy.lions.no"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
-      <a href="/">Alle benkene</a>
+      <a href="/"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
+      <a href="/">Benkene</a>
       <a href="/om-lions.html">Om Lions</a>
     </nav>
     <%block name="content" />
