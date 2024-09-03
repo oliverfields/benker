@@ -20,27 +20,27 @@ warning() {
 
 
 # Check dependencies are met
-for cmd in qrencode base64; do
+for cmd in qrencode; do
   command -v $cmd > /dev/null 2>&1 || error "Required command $cmd not found"
 done
 
 today="$(date +%Y-%m-%d)"
-html="qrs.html"
 
-echo -e "<h1 style=\"padding: 1em 0; margin-bottom: 2em; border-bottom: solid 3px #ccc;\">Lions QR codes for benches</h1>\n" > "$html"
+rm qrs/*
 
-for n in {1..100}; do
+for n in {1..25}; do
   url="https://krakeroylions.no/benker/$n.html"
 
+  echo $url
+  continue
+
+  png="qrs/qr_${n}.png"
+  pdf="qrs/qr_${n}.pdf"
+
   # Generate qr code png as base64 string for embedding in html
-  qr_base64="$(echo "$url" | qrencode -o /dev/stdout | base64)"
-
-  echo "<div style=\"width: 450px; clear: both;$top_margin\">
-<h2>$url</h2>
-<img style=\"float: right;\" src=\"data:image/png;base64,$qr_base64\" />
-</div>
-" >> "$html"
-
-  top_margin=" margin-top: 10em;"
+  echo "$url" | qrencode -s 21 -m 0 -o "$png"
+  convert "$png" "$pdf"
 done
+
+
 
