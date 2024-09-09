@@ -25,7 +25,6 @@ def benk_image_path(site, page, image_class):
     # Create image by class
     try:
         img_tag = site.shortcodes['image'](site, page, img_path_full, 'Benk', image_class=image_class)
-        print(img_tag)
     except:
         img_tag = ''
 
