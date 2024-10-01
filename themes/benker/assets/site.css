@@ -28,7 +28,7 @@ font-size: 16px;
 display: inline-block;
 font-weight: 400;
 padding-right: 14px;
-text-decoration: none;
+text-decoration: underline;
 color: var(--fg);
 }
 
@@ -59,10 +59,10 @@ font-size: 12px;
 article h1 {
 color: #585858;
 border-bottom: 2px solid whitesmoke;
-font-size: 20px;
+font-size: 32px;
 font-weight: 400;
 padding: 8px 0 4px 0;
-margin-bottom: 2em;
+margin-bottom: 1em;
 }
 
 article p {
@@ -98,4 +98,9 @@ margin: 0 0 1em 0;
 padding: 0.6em 1em;
 text-align: center;
 background-color: var(--bg-dark);
+}
+
+pre.dikt {
+text-align: center;
+margin: 1em 0 2em 0;
 }

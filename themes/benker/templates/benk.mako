@@ -5,7 +5,7 @@
   <article>
   <h1>${page.title}</h1>
 
-  <p>Du hviler deg nå på en benk som er satt opp av Lions Kråkerøy</p>
+  <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy.</p>
 
   ${page.html}
 
@@ -29,7 +29,7 @@
     url_encoded_url = urllib.parse.quote(page.absolute_url, safe='')
   %>
 
-  <pre>
+  <pre class="dikt">
 Ein benk dukkar opp
 langs vegen eg går på,
 står der inviterande,
