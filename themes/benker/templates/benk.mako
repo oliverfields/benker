@@ -5,6 +5,10 @@
   <article>
   <h1>${page.title}</h1>
 
+  <p>Du hviler deg nå på en benk som er satt opp av Lions Kråkerøy</p>
+
+  ${page.html}
+
   <%
     img_desktop = site.shortcodes['benk_image_path'](site, page, 'desktop')
     img_mobile = site.shortcodes['benk_image_path'](site, page, 'mobile')
@@ -25,7 +29,29 @@
     url_encoded_url = urllib.parse.quote(page.absolute_url, safe='')
   %>
 
-  ${page.html}
+  <pre>
+Ein benk dukkar opp
+langs vegen eg går på,
+står der inviterande,
+meir som ein gamal ven,
+og nærast nøyer ein
+vandrande skrott
+å setja seg nedpå,
+rart korleis tankane
+smyg lettare rundt i hausen
+når ein sit,
+sitjande på ein benk
+langs vegen
+kan ein få
+det for seg at
+altor mange strenar i veg
+utan å ta seg tid
+til setja seg på
+benker langs vegen,
+som om tankar på ein benk
+langs vegen
+skulle vera fårlege.
+  </pre>
 
   <div class="sharing">
 
