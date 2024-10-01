@@ -5,7 +5,7 @@
   <article>
   <h1>${page.title}</h1>
 
-  <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy.</p>
+  <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy, se de <a href="/">andre benkene</a> i området.</p>
 
   ${page.html}
 
