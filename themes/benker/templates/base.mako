@@ -15,7 +15,12 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="${page.absolute_url}" />
     <title>${page.title}</title>
-    <meta name="description" content="${page.headers['description']}"/>
+
+    %if page.url_path.startswith('/benker/'):
+      <meta name="description" content="${page.headers['description']} - en av Lions Club Kråkerøy benkene"/>
+    %else:
+      <meta name="description" content="${page.headers['description']}"/>
+    %endif
     <base href="${site.base_url}" />
     <meta name="Generator" content="pagegen.phnd.net" />
     <link rel="stylesheet" href="${site.base_url}/assets/theme/site.css" type="text/css" />
