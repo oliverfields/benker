@@ -44,8 +44,16 @@ def opengraph(site, page):
 
     # Facebook
     html = '<meta property="og:url" content="' + page.absolute_url + '" />\n'
-    html += '<meta property="og:title" content="' + page.title + '" />\n'
-    html += '<meta property="og:description" content="' + desc + '" />\n'
+
+    ogtitle = page.title
+    ogdesc = desc
+
+    if page.url_path.startswith('/benker/'):
+        ogtitle += ' benken'
+        ogdesc += ' en av Lions Club Kråkerøy benkene'
+
+    html += '<meta property="og:title" content="' + ogtitle + '" />\n'
+    html += '<meta property="og:description" content="' + ogdesc + '" />\n'
     html += '<meta property="og:image" content="' + img_url + '" />\n'
 
     # Twitter
