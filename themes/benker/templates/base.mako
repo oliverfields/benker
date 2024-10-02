@@ -14,11 +14,11 @@
     <meta name="msapplication-config" content="/assets/theme/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="${page.absolute_url}" />
-    <title>${page.title}</title>
-
     %if page.url_path.startswith('/benker/'):
+      <title>${page.title} benken</title>
       <meta name="description" content="${page.headers['description']} - en av Lions Club Kråkerøy benkene"/>
     %else:
+      <title>${page.title}</title>
       <meta name="description" content="${page.headers['description']}"/>
     %endif
     <base href="${site.base_url}" />
