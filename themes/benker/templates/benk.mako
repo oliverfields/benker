@@ -2,11 +2,20 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
+
+<%
+    sum_benker = 0
+    for p in site.page_list:
+        if p.url_path.startswith('/benker/'):
+            sum_benker += 1
+%>
+
+
+
   <article>
   <h1>${page.title}</h1>
 
-  <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy, se de <a href="/">andre benkene</a> i området.</p>
-<% print('TODO add bench count to line above') %>
+  <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy, det finnes <a href="/">${sum_benker} andre Lions benker</a> i området.</p>
 
   ${page.html}
 
