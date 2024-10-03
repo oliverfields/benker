@@ -1,3 +1,6 @@
+from pagegen.utility_no_deps import report_warning, report_error
+
+
 def benk_image_path(site, page, image_class):
 
     # Get page name without path and extension
@@ -14,7 +17,7 @@ def benk_image_path(site, page, image_class):
     except KeyError:
         page.cache[img_cache_name] = False
     except Exception as e:
-        print(img_cache_name + ': ' + e)
+        report_error(img_cache_name + ': ' + e)
 
     # Work out paths for url and file paths
     img_path_relative_url = '/assets/benk-' + img_name + '.jpg'
@@ -31,11 +34,10 @@ def benk_image_path(site, page, image_class):
     # Save to cache
     page.cache[img_cache_name] = img_path_relative_url_class
 
-
     return page.cache[img_cache_name]
 
 
-def opengraph(site, page):
+def opengraph(site, page, benk_title_postfix='', benk_desc_postfix=''):
     img_url = site.base_url + benk_image_path(site, page, 'desktop')
     desc = str(page.headers['description'])
 
@@ -49,8 +51,8 @@ def opengraph(site, page):
     ogdesc = desc
 
     if page.url_path.startswith('/benker/'):
-        ogtitle += ' benken'
-        ogdesc += ' en av Lions Club Kråkerøy benkene'
+        ogtitle = page.title + benk_title_postfix
+        ogdesc = page.title + benk_desc_postfix
 
     html += '<meta property="og:title" content="' + ogtitle + '" />\n'
     html += '<meta property="og:description" content="' + ogdesc + '" />\n'
@@ -66,3 +68,15 @@ def opengraph(site, page):
 
     return html
 
+
+def get_setting(site, page, name):
+    settings = {
+        'benk_desc_postfix': ' - en av Lions Club Kråkerøy benkene',
+        'benk_title_postfix': ' benken'
+    }
+
+    try:
+        return settings[name]
+    except:
+        report_warning('Setting ' + name + ' not found')
+        return ''
