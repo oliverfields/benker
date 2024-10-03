@@ -15,8 +15,12 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="${page.absolute_url}" />
     %if page.url_path.startswith('/benker/'):
-      <title>${page.title} benken</title>
-      <meta name="description" content="${page.headers['description']} - en av Lions Club Kråkerøy benkene"/>
+<%
+    benk_title_postfix = site.shortcodes['get_setting'](site, page, 'benk_title_postfix')
+    benk_desc_postfix = site.shortcodes['get_setting'](site, page, 'benk_desc_postfix')
+%>
+      <title>${page.title}${benk_title_postfix}</title>
+      <meta name="description" content="${page.title}${benk_desc_postfix}"/>
     %else:
       <title>${page.title}</title>
       <meta name="description" content="${page.headers['description']}"/>
@@ -28,7 +32,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     % if page.headers['template'] == 'benk.mako':
       <meta property="fb:admins" content="oliverjfields"/>
-      <% og = site.shortcodes['opengraph'](site, page) %>
+      <% og = site.shortcodes['opengraph'](site, page, benk_title_postfix=benk_title_postfix, benk_desc_postfix=benk_desc_postfix) %>
       ${og}
     % elif page.headers['template'] == 'homepage.mako':
       <% og = site.shortcodes['opengraph'](site, page) %>
