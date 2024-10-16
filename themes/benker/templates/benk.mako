@@ -19,7 +19,7 @@ from pagegen.utility_no_deps import report_warning
 
   <h1>${page.title}</h1>
 
-  <p>Denne benken er satt opp av Lions Club Kråkerøy, det er <a href="/">${sum_benker} andre Lions benker</a> på Kråkerøy og Kjøkøy.</p>
+  <p>Benken du er ved, og <a href="/">${sum_benker} andre benker</a> i nærområdet, er satt opp av Lions Club Kråkerøy.</p>
 
   ${page.html}
 
