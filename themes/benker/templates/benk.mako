@@ -1,4 +1,7 @@
-<%! import urllib.parse %>
+<%!
+import urllib.parse
+from pagegen.utility_no_deps import report_warning
+%>
 <%inherit file="base.mako"/>
 
 <%block name="content">
@@ -27,12 +30,20 @@
   <div class="hero-image">
     <picture class="article-picture">
       <source media="(min-width: 600px)" srcset="${img_desktop}" />
-      <img src="${img_mobile}" alt="${page.custom_headers['hero img alt text']}" />
+
+<%
+if 'hero img alt text' in page.custom_headers.keys():
+    hero_alt = ' alt="' + page.custom_headers['hero img alt text'] + '"'
+else:
+    hero_alt = ''
+    report_warning(page.source_path.lstrip(site.site_dir) + ' is missing hero img alt text header')
+%>
+      <img src="${img_mobile}"${hero_alt} />
     </picture>
   % if 'hero caption' in page.custom_headers.keys():
     <p>${page.custom_headers['hero caption']}</p>
   % else:
-    <% print('Warning: ' + page.source_path + ' is missing hero caption header') %>
+    <% report_warning(page.source_path.lstrip(site.site_dir) + ' is missing hero caption header') %>
   % endif
   </div>
   <%
