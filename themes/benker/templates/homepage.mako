@@ -52,7 +52,7 @@ const markers = []
 
 % for p in site.page_list:
    % if p.headers['template'] == 'benk.mako':
-markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['longitude']}]).addTo(map).on('click', function(evt) {
+markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['longitude']}],{title:"${p.title} benken"}).addTo(map).on('click', function(evt) {
   window.open('${p.url_path}', '_self');
 }));
   % endif
