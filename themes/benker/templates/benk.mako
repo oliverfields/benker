@@ -10,9 +10,10 @@
             sum_benker += 1
 %>
 
-
-
   <article>
+
+  ##<a href="http://www.openstreetmap.org/?mlat=${page.custom_headers['latitude']}&mlon=${page.custom_headers['longitude']}&zoom=12">map</a>
+
   <h1>${page.title}</h1>
 
   <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy, det finnes <a href="/">${sum_benker} andre Lions benker</a> i området.</p>
