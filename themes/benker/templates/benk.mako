@@ -7,7 +7,7 @@ from pagegen.utility_no_deps import report_warning
 <%block name="content">
 
 <%
-    sum_benker = 0
+    sum_benker = -2
     for p in site.page_list:
         if p.url_path.startswith('/benker/'):
             sum_benker += 1
@@ -19,7 +19,7 @@ from pagegen.utility_no_deps import report_warning
 
   <h1>${page.title}</h1>
 
-  <p>Benken du hviler deg på nå er satt opp av Lions Club Kråkerøy, det finnes <a href="/">${sum_benker} andre Lions benker</a> i området.</p>
+  <p>Denne benken er satt opp av Lions Club Kråkerøy, det er <a href="/">${sum_benker} andre Lions benker</a> på Kråkerøy og Kjøkøy.</p>
 
   ${page.html}
 
