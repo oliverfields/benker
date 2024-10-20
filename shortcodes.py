@@ -23,7 +23,7 @@ def benk_image_path(site, page, image_class="desktop"):
 
     # Warn if image seems to small
     img_size_bytes = Path(src_img_path_full).stat().st_size
-    if img_size_bytes < 1300000:
+    if img_size_bytes < 1500000:
         img_size_mb = round(img_size_bytes / (1024*1024), 2)
         report_warning('Probable low resolution: ' + str(img_size_mb) + 'mb ' + src_img_path_full)
 
