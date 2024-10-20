@@ -1,44 +1,40 @@
-from pagegen.utility_no_deps import report_warning, report_error
+from pagegen.utility_no_deps import report_warning, report_error, report_notice
+from PIL import Image
 
 
-def benk_image_path(site, page, image_class):
+def benk_image_path(site, page, image_class="desktop"):
 
     # Get page name without path and extension
     img_name = page.source_path.rpartition('/')[2]
+
+    if img_name.startswith('index'):
+        return ''
+
     img_name = img_name.rpartition('.')[0]
 
-    img_cache_name = 'benk-' + img_name + '_' + image_class + '.jpg'
-
-    # Return if we have this cached already
-    try:
-        return page.cache[img_cache_name]
-    except AttributeError:
-        page.cache = {}
-    except KeyError:
-        page.cache[img_cache_name] = False
-    except Exception as e:
-        report_error(img_cache_name + ': ' + e)
+    if image_class == 'desktop':
+        width=994
+    elif image_class == 'mobile':
+        width=450
 
     # Work out paths for url and file paths
-    img_path_relative_url = '/assets/benk-' + img_name + '.jpg'
-    img_path_relative_url_class = '/assets/' + img_cache_name
-    img_path_full = site.content_dir + img_path_relative_url
+    src_img_path_full = site.content_dir + '/assets/benk-' + img_name + '.jpg'
 
+    # Calculates height so that aspect ratio is maintained
+    im = Image.open(src_img_path_full)
+    height = round(int(width) * im.size[1]/im.size[0])
 
-    # Create image by class
-    try:
-        img_tag = site.shortcodes['image'](site, page, img_path_full, 'Benk', image_class=image_class)
-    except Exception as e:
-        img_tag = ''
+    resized_img_relative_url_path = '/assets/benk-' + img_name + '-' + str(width) + 'x' + str(height) + '.jpg'
 
-    # Save to cache
-    page.cache[img_cache_name] = img_path_relative_url_class
+    report_notice('Resizing ' + src_img_path_full)
 
-    return page.cache[img_cache_name]
+    img_tag = site.shortcodes['image'](site, page, src_img_path_full, 'Benk', image_size=str(width)+'x'+str(height))
+
+    return resized_img_relative_url_path
 
 
 def opengraph(site, page, benk_title_postfix='', benk_desc_postfix=''):
-    img_url = site.base_url + benk_image_path(site, page, 'desktop')
+    img_url = site.base_url + benk_image_path(site, page, image_class='desktop')
     desc = str(page.headers['description'])
 
     domain = site.base_url.replace('https://', '')

@@ -24,8 +24,8 @@ from pagegen.utility_no_deps import report_warning
   ${page.html}
 
   <%
-    img_desktop = site.shortcodes['benk_image_path'](site, page, 'desktop')
-    img_mobile = site.shortcodes['benk_image_path'](site, page, 'mobile')
+    img_desktop = site.shortcodes['benk_image_path'](site, page, image_class='desktop')
+    img_mobile = site.shortcodes['benk_image_path'](site, page, image_class='mobile')
   %>
   <div class="hero-image">
     <picture class="article-picture">
