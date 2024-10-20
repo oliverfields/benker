@@ -1,4 +1,5 @@
 from pagegen.utility_no_deps import report_warning, report_error, report_notice
+from pathlib import Path
 from PIL import Image
 
 
@@ -20,13 +21,15 @@ def benk_image_path(site, page, image_class="desktop"):
     # Work out paths for url and file paths
     src_img_path_full = site.content_dir + '/assets/benk-' + img_name + '.jpg'
 
+    # Warn if image seems to small
+    if Path(src_img_path_full).stat().st_size < 1500000:
+        report_warning('Probable low resolution: ' + src_img_path_full)
+
     # Calculates height so that aspect ratio is maintained
     im = Image.open(src_img_path_full)
     height = round(int(width) * im.size[1]/im.size[0])
 
     resized_img_relative_url_path = '/assets/benk-' + img_name + '-' + str(width) + 'x' + str(height) + '.jpg'
-
-    report_notice('Resizing ' + src_img_path_full)
 
     img_tag = site.shortcodes['image'](site, page, src_img_path_full, 'Benk', image_size=str(width)+'x'+str(height))
 
