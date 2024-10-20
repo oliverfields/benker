@@ -22,8 +22,10 @@ def benk_image_path(site, page, image_class="desktop"):
     src_img_path_full = site.content_dir + '/assets/benk-' + img_name + '.jpg'
 
     # Warn if image seems to small
-    if Path(src_img_path_full).stat().st_size < 1500000:
-        report_warning('Probable low resolution: ' + src_img_path_full)
+    img_size_bytes = Path(src_img_path_full).stat().st_size
+    if img_size_bytes < 1300000:
+        img_size_mb = round(img_size_bytes / (1024*1024), 2)
+        report_warning('Probable low resolution: ' + str(img_size_mb) + 'mb ' + src_img_path_full)
 
     # Calculates height so that aspect ratio is maintained
     im = Image.open(src_img_path_full)
