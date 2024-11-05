@@ -27,25 +27,17 @@ from pagegen.utility_no_deps import report_warning
     img_desktop = site.shortcodes['benk_image_path'](site, page, image_class='desktop')
     img_mobile = site.shortcodes['benk_image_path'](site, page, image_class='mobile')
   %>
-  <div class="hero-image">
-    <picture class="article-picture">
+  <figure class="hero-image">
+    <picture>
       <source media="(min-width: 600px)" srcset="${img_desktop}" />
-
-<%
-if 'hero img alt text' in page.custom_headers.keys():
-    hero_alt = ' alt="' + page.custom_headers['hero img alt text'] + '"'
-else:
-    hero_alt = ''
-    report_warning(page.source_path.lstrip(site.site_dir) + ' is missing hero img alt text header')
-%>
-      <img src="${img_mobile}"${hero_alt} />
+      <img src="${img_mobile}" />
     </picture>
   % if 'hero caption' in page.custom_headers.keys():
-    <p>${page.custom_headers['hero caption']}</p>
+    <figcaption>${page.custom_headers['hero caption']}</figcaption>
   % else:
     <% report_warning(page.source_path.lstrip(site.site_dir) + ' is missing hero caption header') %>
   % endif
-  </div>
+  </figure>
   <%
     url_encoded_title = urllib.parse.quote(page.title, safe='')
     url_encoded_url = urllib.parse.quote(page.absolute_url, safe='')

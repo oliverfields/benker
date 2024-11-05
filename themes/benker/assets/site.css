@@ -91,16 +91,15 @@ margin: 2.4em 0 3em 0;
 text-align: center;
 }
 
-.article-picture img,
-.article-picture source {
-width: 100%;
-}
-
 .hero-image {
 background-color: var(--bg-dark);
 }
 
-.hero-image p {
+.hero-image img, .hero-image source {
+width: 100%;
+}
+
+.hero-image figcaption {
 margin: 0 0 1em 0;
 padding: 0.6em 1em;
 text-align: center;
