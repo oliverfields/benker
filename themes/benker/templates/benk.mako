@@ -21,8 +21,6 @@ from pagegen.utility_no_deps import report_warning
 
   <p>Denne benken, og <a href="/">${sum_benker} andre benker</a> i nærområdet, er satt opp av Lions Club Kråkerøy.</p>
 
-  ${page.html}
-
   <%
     img_desktop = site.shortcodes['benk_image_path'](site, page, image_class='desktop')
     img_mobile = site.shortcodes['benk_image_path'](site, page, image_class='mobile')
@@ -42,6 +40,8 @@ from pagegen.utility_no_deps import report_warning
     url_encoded_title = urllib.parse.quote(page.title, safe='')
     url_encoded_url = urllib.parse.quote(page.absolute_url, safe='')
   %>
+
+  ${page.html}
 
   <pre class="dikt">
 Ein benk dukkar opp

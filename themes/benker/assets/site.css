@@ -70,6 +70,7 @@ article p {
 line-height: 1.6em;
 margin: 1em 0 2em 0;
 text-align: center;
+font-size: 1.1em;
 }
 
 .share-button {
@@ -100,7 +101,7 @@ width: 100%;
 }
 
 .hero-image figcaption {
-margin: 0 0 1em 0;
+margin: 0 0 3em 0;
 padding: 0.6em 1em;
 text-align: center;
 background-color: var(--bg-dark);
