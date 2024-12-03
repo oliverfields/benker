@@ -39,6 +39,7 @@ from pagegen.utility_no_deps import report_warning
   <%
     url_encoded_title = urllib.parse.quote(page.title, safe='')
     url_encoded_url = urllib.parse.quote(page.absolute_url, safe='')
+    share_prefix = urllib.parse.quote('Kråkerøy Lions benken', safe='')
   %>
 
   ${page.html}
@@ -47,7 +48,7 @@ from pagegen.utility_no_deps import report_warning
 
     <a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=${url_encoded_url}" target="_blank"><img src="/assets/theme/facebook-logo.svg" alt="Facebook" title="Facebook" /></a>
 
-    <a class="share-button" href="https://bsky.app/intent/compose?text=${url_encoded_title}\n${url_encoded_url}" target="_blank"><img src="/assets/theme/bluesky-logo.svg" alt="Bluesky" title="Bluesky" /></a>
+    <a class="share-button" href="https://bsky.app/intent/compose?text=${share_prefix} ${url_encoded_title} ${url_encoded_url}" target="_blank"><img src="/assets/theme/bluesky-logo.svg" alt="Bluesky" title="Bluesky" /></a>
 
     <a class="share-button" href="http://pinterest.com/pin/create/button/?url=${url_encoded_url}" target="_blank"><img src="/assets/theme/pinterest-logo.svg" alt="Pinterest" title="Pinterest" /></a>
 
