@@ -43,30 +43,6 @@ from pagegen.utility_no_deps import report_warning
 
   ${page.html}
 
-  <pre class="dikt">
-Ein benk dukkar opp
-langs vegen eg går på,
-står der inviterande,
-meir som ein gamal ven,
-og nærast nøyer ein
-vandrande skrott
-å setja seg nedpå,
-rart korleis tankane
-smyg lettare rundt i hausen
-når ein sit,
-sitjande på ein benk
-langs vegen
-kan ein få
-det for seg at
-altor mange strenar i veg
-utan å ta seg tid
-til setja seg på
-benker langs vegen,
-som om tankar på ein benk
-langs vegen
-skulle vera fårlege.
-  </pre>
-
   <div class="sharing">
 
     <a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=${url_encoded_url}" target="_blank"><img src="/assets/theme/facebook-logo.svg" alt="Facebook" title="Facebook" /></a>

@@ -53,6 +53,7 @@ tags.async=!0,tags.src="https://krakeroylions.containers.piwik.pro/"+id+".js"+qP
     <nav>
       <a href="/"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
       <a href="/">Benkene</a>
+      <a href="/dikt.html">Dikt</a>
       <a href="/om-lions.html">Om Lions</a>
     </nav>
     <%block name="content" />
