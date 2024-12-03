@@ -47,7 +47,7 @@ from pagegen.utility_no_deps import report_warning
 
     <a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=${url_encoded_url}" target="_blank"><img src="/assets/theme/facebook-logo.svg" alt="Facebook" title="Facebook" /></a>
 
-    <a class="share-button" href="https://twitter.com/share?text=${url_encoded_title}&url=${url_encoded_url}" target="_blank"><img src="/assets/theme/x-twitter-logo.svg" alt="X (Twitter)" title="X (Twitter)" /></a>
+    <a class="share-button" href="https://bsky.app/intent/compose?text=${url_encoded_url}" target="_blank"><img src="/assets/theme/bluesky-logo.svg" alt="Bluesky" title="Bluesky" /></a>
 
     <a class="share-button" href="http://pinterest.com/pin/create/button/?url=${url_encoded_url}" target="_blank"><img src="/assets/theme/pinterest-logo.svg" alt="Pinterest" title="Pinterest" /></a>
 
