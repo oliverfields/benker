@@ -24,11 +24,17 @@ from pagegen.utility_no_deps import report_warning
   <%
     img_desktop = site.shortcodes['benk_image_path'](site, page, image_class='desktop')
     img_mobile = site.shortcodes['benk_image_path'](site, page, image_class='mobile')
+
+    if 'hero offset' in page.custom_headers.keys():
+      hero_style = f'style="object-position: 0px {page.custom_headers["hero offset"]}px;" '
+    else:
+      hero_style = ''
+
   %>
   <figure class="hero-image">
     <picture>
       <source media="(min-width: 600px)" srcset="${img_desktop}" />
-      <img src="${img_mobile}" />
+      <img src="${img_mobile}"${hero_style} />
     </picture>
   % if 'hero caption' in page.custom_headers.keys():
     <figcaption>${page.custom_headers['hero caption']}</figcaption>
