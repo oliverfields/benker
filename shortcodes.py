@@ -1,25 +1,34 @@
 from pagegen.utility_no_deps import report_warning, report_error, report_notice
 from pathlib import Path
 from PIL import Image
+from os.path import isfile
+
+
+def resize_and_crop(image, config):
+
+    # Resize image to max width, maintaining aspect ratio
+    wpercent = (config['width'] / float(image.size[0]))
+    ratio_height = int((float(image.size[1]) * float(wpercent)))
+    image = image.resize((config['width'], ratio_height))
+
+    # Crop
+    image = image.crop((config['crop_left'], config['crop_top'], config['crop_right'], config['crop_bottom']))
+
+    return image
 
 
 def benk_image_path(site, page, image_class="desktop"):
 
     # Get page name without path and extension
-    img_name = page.source_path.rpartition('/')[2]
+    img_name = page.source_path.split('/')[-1].rstrip('.html')
 
     if img_name.startswith('index'):
         return ''
 
-    img_name = img_name.rpartition('.')[0]
-
-    if image_class == 'desktop':
-        width=994
-    elif image_class == 'mobile':
-        width=450
-
     # Work out paths for url and file paths
     src_img_path_full = site.content_dir + '/assets/benk-' + img_name + '.jpg'
+    tgt_img_path_full = site.content_dir + '/assets/benk-' + img_name + '-' + image_class + '.jpg'
+    resized_img_relative_url_path = '/assets/benk-' + img_name + '-' + image_class + '.jpg'
 
     # Warn if image seems to small
     img_size_bytes = Path(src_img_path_full).stat().st_size
@@ -27,13 +36,40 @@ def benk_image_path(site, page, image_class="desktop"):
         img_size_mb = round(img_size_bytes / (1024*1024), 2)
         report_warning('Probable low resolution: ' + str(img_size_mb) + 'mb ' + src_img_path_full)
 
-    # Calculates height so that aspect ratio is maintained
-    im = Image.open(src_img_path_full)
-    height = round(int(width) * im.size[1]/im.size[0])
+    # Skip image processing if already exists
+    if isfile(tgt_img_path_full):
+        report_notice('Using cached image: ' + tgt_img_path_full)
+        return resized_img_relative_url_path
 
-    resized_img_relative_url_path = '/assets/benk-' + img_name + '-' + str(width) + 'x' + str(height) + '.jpg'
+    img_name = img_name.rpartition('.')[0]
+    golden_ratio = 1.61803399
 
-    img_tag = site.shortcodes['image'](site, page, src_img_path_full, 'Benk', image_size=str(width)+'x'+str(height))
+    try:
+        crop_top_percent = float(page.custom_headers['hero crop top mobile'])
+    except Exception as e:
+        crop_top_percent = 0
+
+    if image_class == 'desktop':
+        width = 994
+
+    elif image_class == 'mobile':
+        width = 600
+
+    height = int(width / golden_ratio)
+    crop_top = int(height * crop_top_percent)
+
+    conf = {
+        'width': width,
+        'height': height,
+        'crop_left': 0,
+        'crop_top': crop_top,
+        'crop_right': width,
+        'crop_bottom': crop_top + height
+    }
+
+    img = Image.open(src_img_path_full)
+    img = resize_and_crop(img, conf)
+    img.save(tgt_img_path_full)
 
     return resized_img_relative_url_path
 
