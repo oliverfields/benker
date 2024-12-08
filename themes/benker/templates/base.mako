@@ -40,7 +40,22 @@
     % endif
   </head>
   <body>
+% if site.environment == 'prod':
     <script type="text/javascript">
+
+
+if(queryStrings['tracking'] == 'off') {
+  if(localStorage.getItem('tracking') != 'off') {
+    localStorage.setItem('tracking', 'off');
+    alert('Tracking is now turned off for this device🙈');
+  }
+}
+
+if(queryStrings['tracking'] == 'on') localStorage.removeItem('tracking');
+
+
+if (localStorage.getItem('tracking') != 'off') {
+
 (function(window, document, dataLayerName, id) {
 window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
 function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString();f="; SameSite=Strict"}document.cookie=a+"="+b+d+f+"; path=/"}
@@ -49,7 +64,9 @@ var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName)
 tags.async=!0,tags.src="https://krakeroylions.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
 !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
 })(window, document, 'dataLayer', 'ba53ab4b-44f4-4aac-8837-e72d2cbb83d9');
+}
     </script>
+% endif
     <nav>
       <a href="/"><img width="41" height="40" src="/assets/theme/lions-logo.png" id="header-logo" /></a>
       <a href="/">Benkene</a>

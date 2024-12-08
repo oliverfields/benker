@@ -1,4 +1,18 @@
 <!DOCTYPE html><html lang=no> <head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=apple-touch-icon sizes=180x180 href=/assets/theme/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/assets/theme/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/assets/theme/favicon-16x16.png><link rel=manifest href=/assets/theme/site.webmanifest><link rel=mask-icon href=/assets/theme/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=/assets/theme/favicon.ico><meta name=msapplication-TileColor content=#da532c><meta name=msapplication-config content=/assets/theme/browserconfig.xml><meta name=theme-color content=#ffffff><link href=https://krakeroylions.no/benker/ rel=canonical><title>benker benken</title><meta name=description content="benker - en av Lions Club Kråkerøy benkene"><base href=https://krakeroylions.no><meta name=Generator content=pagegen.phnd.net><link rel=stylesheet href=https://krakeroylions.no/assets/theme/site.css type=text/css><link rel=stylesheet href=https://unpkg.com/leaflet@1.9.4/dist/leaflet.css integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin><script src=https://unpkg.com/leaflet@1.9.4/dist/leaflet.js integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script></head> <body> <script type=text/javascript>
+
+
+if(queryStrings['tracking'] == 'off') {
+  if(localStorage.getItem('tracking') != 'off') {
+    localStorage.setItem('tracking', 'off');
+    alert('Tracking is now turned off for this device🙈');
+  }
+}
+
+if(queryStrings['tracking'] == 'on') localStorage.removeItem('tracking');
+
+
+if (localStorage.getItem('tracking') != 'off') {
+
 (function(window, document, dataLayerName, id) {
 window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
 function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString();f="; SameSite=Strict"}document.cookie=a+"="+b+d+f+"; path=/"}
@@ -7,4 +21,5 @@ var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName)
 tags.async=!0,tags.src="https://krakeroylions.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
 !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
 })(window, document, 'dataLayer', 'ba53ab4b-44f4-4aac-8837-e72d2cbb83d9');
+}
     </script> <nav> <a href=/ ><img width=41 height=40 src=/assets/theme/lions-logo.png id=header-logo></a> <a href=/ >Benkene</a> <a href=/dikt.html>Dikt</a> <a href=/om-lions.html>Om Lions</a> </nav> <article> <h1>benker</h1> <ol class=bench-list> <li><a href=/benker/1.html>Sundlia</a></li> <li><a href=/benker/10.html>Lunderamsa vest</a></li> <li><a href=/benker/11.html>Klovadalen sør</a></li> <li><a href=/benker/12.html>Klovadalen nord</a></li> <li><a href=/benker/13.html>Over Kråkerøy kirke nord</a></li> <li><a href=/benker/14.html>Kråkerøy kirke sør</a></li> <li><a href=/benker/15.html>Goen</a></li> <li><a href=/benker/16.html>Fløy berget nord</a></li> <li><a href=/benker/17.html>Holtevarden sør</a></li> <li><a href=/benker/18.html>Holtevarden nord</a></li> <li><a href=/benker/19.html>Fløy berget sør</a></li> <li><a href=/benker/2.html>Kjøkøy Varde nord</a></li> <li><a href=/benker/20.html>Bekkhus</a></li> <li><a href=/benker/21.html>Smertudammen</a></li> <li><a href=/benker/22.html>Nøkledypet</a></li> <li><a href=/benker/3.html>Kjøkøy Varde sør</a></li> <li><a href=/benker/4.html>Skams klove</a></li> <li><a href=/benker/5.html>Kråkerøy ungdomskole</a></li> <li><a href=/benker/6.html>Kjøkøy Varde vest</a></li> <li><a href=/benker/7.html>Kjøkøy Varde øst</a></li> <li><a href=/benker/8.html>Bekkhus ferge</a></li> <li><a href=/benker/9.html>Lunderamsa øst</a></li> </ol> </article> <footer> <p>Lions Club Kråkerøy &copy; 2024 | Generert av <a href=https://pagegen.phnd.net><img src=/assets/theme/pagegen_54x10.png></a> </footer> </body> </html> 
