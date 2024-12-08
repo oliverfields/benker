@@ -117,3 +117,63 @@ def get_setting(site, page, name):
     except:
         report_warning('Setting ' + name + ' not found')
         return ''
+
+
+def tracking(site, page):
+
+    if site.environment != 'prod':
+        return ''
+    else:
+        return '''
+<script>
+var queryStrings;
+(window.onpopstate = function () {
+  var match,
+    pl   = /\+/g,  // Regex for replacing addition symbol with a space
+    search = /([^&=]+)=?([^&]*)/g,
+    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+    query  = window.location.search.substring(1);
+
+  queryStrings = {};
+  while (match = search.exec(query))
+     queryStrings[decode(match[1])] = decode(match[2]);
+})();
+
+if(queryStrings['tracking'] == 'off') {
+  if(localStorage.getItem('tracking') != 'off') {
+    localStorage.setItem('tracking', 'off');
+    alert('Tracking is now turned off for this device🙈');
+  }
+}
+
+if(queryStrings['tracking'] == 'on') localStorage.removeItem('tracking');
+
+
+if (localStorage.getItem('tracking') != 'off') {
+
+(function(window, document, dataLayerName, id) {
+window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString();f="; SameSite=Strict"}document.cookie=a+"="+b+d+f+"; path=/"}
+var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+tags.async=!0,tags.src="https://krakeroylions.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+})(window, document, 'dataLayer', 'ba53ab4b-44f4-4aac-8837-e72d2cbb83d9');
+}
+else {
+  console.log('Tracking is disabled on this device, /?tracking=on to enable');
+  let notrack = document.createElement('a');
+  notrack.setAttribute('href', '/?tracking=on');
+  notrack.setAttribute('title', 'Enable tracking');
+  notrack.style.position = 'fixed';
+  notrack.style.right = '0';
+  notrack.style.top = '0';
+  notrack.style.padding = '.5em';
+  notrack.style.textDecoration = 'none';
+  notrack.style.zIndex = '99999';
+
+  notrack.appendChild(document.createTextNode('🙈'));
+
+  document.body.appendChild(notrack);
+}
+</script>'''
