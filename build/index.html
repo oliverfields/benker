@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang=no> <head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=apple-touch-icon sizes=180x180 href=/theme/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/theme/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/theme/favicon-16x16.png><link rel=manifest href=/theme/site.webmanifest><link rel=mask-icon href=/theme/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=/theme/favicon.ico><meta name=msapplication-TileColor content=#da532c><meta name=msapplication-config content=/theme/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=canonical href=https://krakeroylions.no/index.html><title>Benker</title><meta name=description content="Lions Kråkerøy vedlikeholder og setter ut benker i lokalområdet. Her kan du se hvor benkene er, og lese kuriosa fra hver benk."><base href=https://krakeroylions.no><meta name=Generator content=pagegen.phnd.net><link rel=stylesheet href=https://krakeroylions.no/theme/site.css type=text/css><link rel=stylesheet href=https://unpkg.com/leaflet@1.9.4/dist/leaflet.css integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin><script src=https://unpkg.com/leaflet@1.9.4/dist/leaflet.js integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script></head> <body> <script>
+var queryStrings;
+(window.onpopstate = function () {
+  var match,
+    pl   = /\+/g,  // Regex for replacing addition symbol with a space
+    search = /([^&=]+)=?([^&]*)/g,
+    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+    query  = window.location.search.substring(1);
+
+  queryStrings = {};
+  while (match = search.exec(query))
+     queryStrings[decode(match[1])] = decode(match[2]);
+})();
+
+if(queryStrings['tracking'] == 'off') {
+  if(localStorage.getItem('tracking') != 'off') {
+    localStorage.setItem('tracking', 'off');
+    alert('Tracking is now turned off for this device🙈');
+  }
+}
+
+if(queryStrings['tracking'] == 'on') localStorage.removeItem('tracking');
+
+
+if (localStorage.getItem('tracking') != 'off') {
+
+(function(window, document, dataLayerName, id) {
+window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString();f="; SameSite=Strict"}document.cookie=a+"="+b+d+f+"; path=/"}
+var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+tags.async=!0,tags.src="https://krakeroylions.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+})(window, document, 'dataLayer', 'ba53ab4b-44f4-4aac-8837-e72d2cbb83d9');
+}
+else {
+  console.log('Tracking is disabled on this device, /?tracking=on to enable');
+  let notrack = document.createElement('a');
+  notrack.setAttribute('href', '/?tracking=on');
+  notrack.setAttribute('title', 'Enable tracking');
+  notrack.style.position = 'fixed';
+  notrack.style.right = '0';
+  notrack.style.top = '0';
+  notrack.style.padding = '.5em';
+  notrack.style.textDecoration = 'none';
+  notrack.style.zIndex = '99999';
+
+  notrack.appendChild(document.createTextNode('🙈'));
+
+  document.body.appendChild(notrack);
+}
+</script> <nav> <a href=/ ><img width=41 height=40 src=/theme/lions-logo.png id=header-logo></a> <a href=/ >Benkene</a> <a href=/dikt.html>Dikt</a> <a href=/om-lions.html>Om Lions</a> </nav> <style>
+body {
+height: 100vh;
+overflow: hidden;
+}
+
+nav {
+z-index: 9999;
+}
+
+#map {
+width: 100%;
+height: 100%;
+}
+
+.leaflet-top {
+top: 60px !important;
+}
+
+.leaflet-bottom {
+bottom: 40px !important;
+}
+  </style> <div id=map></div> <script>
+var map = L.map('map').setView([59.16801093952555, 10.924186706542969], 12);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
+map.zoomControl.setPosition('topright');
+
+var benchIcon = L.icon({
+  iconUrl: '/theme/bench.svg',
+  shadowUrl: '/theme/bench-shadow.svg',
+
+  //iconSize:     [61, 43], // size of the icon
+  //shadowSize:   [57, 30], // size of the shadow
+  iconSize:     [49, 34], // size of the icon
+  shadowSize:   [46, 24], // size of the shadow
+  iconAnchor:   [12, 34], // point of the icon which will correspond to marker's location
+  shadowAnchor: [8, 23],  // the same for the shadow
+  popupAnchor:  [-10, -10] // point from which the popup should open relative to the iconAnchor
+});
+
+
+const markers = []
+
+markers.push(L.marker([59.1827268, 10.9318484],{title:"Holtevarden nord benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/18.html', '_self');
+}));
+markers.push(L.marker([59.150399, 10.931022],{title:"Lunderamsa øst benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/9.html', '_self');
+}));
+markers.push(L.marker([59.193574, 10.908744],{title:"Sundlia benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/1.html', '_self');
+}));
+markers.push(L.marker([59.1354171, 10.9451760],{title:"Kjøkøy Varde sør benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/3.html', '_self');
+}));
+markers.push(L.marker([59.168768386473445, 10.925991833209993],{title:"Goen benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/15.html', '_self');
+}));
+markers.push(L.marker([59.1354735, 10.9471950],{title:"Kjøkøy Varde vest benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/6.html', '_self');
+}));
+markers.push(L.marker([59.191927, 10.923881],{title:"Klovadalen nord benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/12.html', '_self');
+}));
+markers.push(L.marker([59.198083, 10.943456],{title:"Bekkhus ferge benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/8.html', '_self');
+}));
+markers.push(L.marker([59.171239, 10.921722],{title:"Fløy berget nord benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/16.html', '_self');
+}));
+markers.push(L.marker([59.1841823, 10.9261736],{title:"Over Kråkerøy kirke nord benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/13.html', '_self');
+}));
+markers.push(L.marker([59.182545, 10.931327],{title:"Holtevarden sør benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/17.html', '_self');
+}));
+markers.push(L.marker([59.197897894747676, 10.930475410905975],{title:"Smertudammen benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/21.html', '_self');
+}));
+markers.push(L.marker([59.198794, 10.943029],{title:"Bekkhus benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/20.html', '_self');
+}));
+markers.push(L.marker([59.2021939, 10.9416653],{title:"Nøkledypet benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/22.html', '_self');
+}));
+markers.push(L.marker([59.17024749040216, 10.921855866909029],{title:"Fløy berget sør benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/19.html', '_self');
+}));
+markers.push(L.marker([59.1841142, 10.9260146],{title:"Kråkerøy kirke sør benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/14.html', '_self');
+}));
+markers.push(L.marker([59.1357265, 10.9451589],{title:"Kjøkøy Varde nord benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/2.html', '_self');
+}));
+markers.push(L.marker([59.1369346, 10.9465516],{title:"Skams klove benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/4.html', '_self');
+}));
+markers.push(L.marker([59.1352926, 10.9476886],{title:"Kjøkøy Varde øst benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/7.html', '_self');
+}));
+markers.push(L.marker([59.1910094, 10.9245455],{title:"Klovadalen sør benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/11.html', '_self');
+}));
+markers.push(L.marker([59.150387, 10.930884],{title:"Lunderamsa vest benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/10.html', '_self');
+}));
+markers.push(L.marker([59.187424, 10.917887],{title:"Kråkerøy ungdomskole benken"}).addTo(map).on('click', function(evt) {
+  window.open('/benker/5.html', '_self');
+}));
+
+map.on('click', function(e){
+  var coord = e.latlng;
+  var lat = coord.lat;
+  var lng = coord.lng;
+  console.log(lat + ", " + lng);
+  });
+
+  </script> <footer> <p>Lions Club Kråkerøy &copy; 2025 | Generert av <a href=https://pagegen.phnd.net><img src=/theme/pagegen_54x10.png></a> </footer> </body> </html> 

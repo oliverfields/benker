@@ -1,7 +1,10 @@
-from pagegen.utility_no_deps import report_warning, report_error, report_notice
 from pathlib import Path
 from PIL import Image
 from os.path import isfile
+import pagegen.logger_setup
+import logging
+
+logger = logging.getLogger('pagegen.' + __name__)
 
 
 def resize_and_crop(image, config):
@@ -26,19 +29,19 @@ def benk_image_path(site, page, image_class="desktop"):
         return ''
 
     # Work out paths for url and file paths
-    src_img_path_full = site.content_dir + '/assets/benk-' + img_name + '.jpg'
-    tgt_img_path_full = site.content_dir + '/assets/benk-' + img_name + '-' + image_class + '.jpg'
+    src_img_path_full = site.site_dir + '/assets/benk-' + img_name + '.jpg'
+    tgt_img_path_full = site.site_dir + '/assets/benk-' + img_name + '-' + image_class + '.jpg'
     resized_img_relative_url_path = '/assets/benk-' + img_name + '-' + image_class + '.jpg'
 
     # Warn if image seems to small
     img_size_bytes = Path(src_img_path_full).stat().st_size
     if img_size_bytes < 1500000:
         img_size_mb = round(img_size_bytes / (1024*1024), 2)
-        report_warning('Probable low resolution: ' + str(img_size_mb) + 'mb ' + src_img_path_full)
+        logger.warning('Probable low resolution: ' + str(img_size_mb) + 'mb ' + src_img_path_full)
 
     # Skip image processing if already exists
     if isfile(tgt_img_path_full):
-        report_notice('Using cached image: ' + tgt_img_path_full)
+        logger.debug('Using cached image: ' + tgt_img_path_full)
         return resized_img_relative_url_path
 
     img_name = img_name.rpartition('.')[0]
@@ -115,13 +118,13 @@ def get_setting(site, page, name):
     try:
         return settings[name]
     except:
-        report_warning('Setting ' + name + ' not found')
+        logger.warning('Setting ' + name + ' not found')
         return ''
 
 
 def tracking(site, page):
 
-    if site.environment != 'prod':
+    if site.base_url.startswith('http://localhost'):
         return ''
     else:
         return '''

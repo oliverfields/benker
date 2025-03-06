@@ -1,4 +1,2 @@
-site/test
-themes/pgsite
-__pycache__
-site/prod/pagegen_site_hash
+.cache/**
+__pycache__/

@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang=no> <head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=apple-touch-icon sizes=180x180 href=/theme/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/theme/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/theme/favicon-16x16.png><link rel=manifest href=/theme/site.webmanifest><link rel=mask-icon href=/theme/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=/theme/favicon.ico><meta name=msapplication-TileColor content=#da532c><meta name=msapplication-config content=/theme/browserconfig.xml><meta name=theme-color content=#ffffff><link rel=canonical href=https://krakeroylions.no/benker/17.html><title>Holtevarden sør benken</title><meta name=description content="Holtevarden sør - en av Lions Club Kråkerøy benkene"><base href=https://krakeroylions.no><meta name=Generator content=pagegen.phnd.net><link rel=stylesheet href=https://krakeroylions.no/theme/site.css type=text/css><link rel=stylesheet href=https://unpkg.com/leaflet@1.9.4/dist/leaflet.css integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin><script src=https://unpkg.com/leaflet@1.9.4/dist/leaflet.js integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script></head> <body> <script>
+var queryStrings;
+(window.onpopstate = function () {
+  var match,
+    pl   = /\+/g,  // Regex for replacing addition symbol with a space
+    search = /([^&=]+)=?([^&]*)/g,
+    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+    query  = window.location.search.substring(1);
+
+  queryStrings = {};
+  while (match = search.exec(query))
+     queryStrings[decode(match[1])] = decode(match[2]);
+})();
+
+if(queryStrings['tracking'] == 'off') {
+  if(localStorage.getItem('tracking') != 'off') {
+    localStorage.setItem('tracking', 'off');
+    alert('Tracking is now turned off for this device🙈');
+  }
+}
+
+if(queryStrings['tracking'] == 'on') localStorage.removeItem('tracking');
+
+
+if (localStorage.getItem('tracking') != 'off') {
+
+(function(window, document, dataLayerName, id) {
+window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString();f="; SameSite=Strict"}document.cookie=a+"="+b+d+f+"; path=/"}
+var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+tags.async=!0,tags.src="https://krakeroylions.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+})(window, document, 'dataLayer', 'ba53ab4b-44f4-4aac-8837-e72d2cbb83d9');
+}
+else {
+  console.log('Tracking is disabled on this device, /?tracking=on to enable');
+  let notrack = document.createElement('a');
+  notrack.setAttribute('href', '/?tracking=on');
+  notrack.setAttribute('title', 'Enable tracking');
+  notrack.style.position = 'fixed';
+  notrack.style.right = '0';
+  notrack.style.top = '0';
+  notrack.style.padding = '.5em';
+  notrack.style.textDecoration = 'none';
+  notrack.style.zIndex = '99999';
+
+  notrack.appendChild(document.createTextNode('🙈'));
+
+  document.body.appendChild(notrack);
+}
+</script> <nav> <a href=/ ><img width=41 height=40 src=/theme/lions-logo.png id=header-logo></a> <a href=/ >Benkene</a> <a href=/dikt.html>Dikt</a> <a href=/om-lions.html>Om Lions</a> </nav> <article> <h1>Holtevarden sør</h1> <p>Denne benken, og <a href=/ >21 andre benker</a> i nærområdet, er satt opp av Lions Club Kråkerøy.</p> <figure class=hero-image> <picture> <source media="(min-width: 600px)" srcset=/assets/benk-17-desktop.jpg> <img src=/assets/benk-17-mobile.jpg> </picture> <figcaption>Holtevarden, med sine 67 meter over havet, er det høyeste punktet på Kråkerøy</figcaption> </figure> <p>Bronsealder røysa her på Holtevarden ble restaurert i 1930-årene av Hjalmar Johnsen. Røysa var da rasert av uforstandige besøkende gjennom mange år. Han fikk støtte av Kråkerøy kommune til dette arbeid, men en enorm jobb må det ha vært. Her på Kråkerøys høyeste punkt er det også funnet et par skålgroper fra steinalderen. I fjellet er det også innhugget mer "moderne" tegn, som stammer fra soldater på vakt her i 1814 og under 2. verdenskrig.</p> <div class=sharing> <a class=share-button href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkrakeroylions.no%2Fbenker%2F17.html" target=_blank><img src=/theme/facebook-logo.svg alt=Facebook title=Facebook></a> <a class=share-button href="https://bsky.app/intent/compose?text=Kr%C3%A5ker%C3%B8y%20Lions%20benken Holtevarden%20s%C3%B8r https%3A%2F%2Fkrakeroylions.no%2Fbenker%2F17.html" target=_blank><img src=/theme/bluesky-logo.svg alt=Bluesky title=Bluesky></a> <a class=share-button href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fkrakeroylions.no%2Fbenker%2F17.html" target=_blank><img src=/theme/pinterest-logo.svg alt=Pinterest title=Pinterest></a> <a class=share-button href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fkrakeroylions.no%2Fbenker%2F17.html" target=_blank><img src=/theme/linkedin-logo.svg alt=LinkedIn title=LinkedIn></a> <a class=share-button href="https://www.reddit.com/submit?url=https%3A%2F%2Fkrakeroylions.no%2Fbenker%2F17.html&title=Holtevarden%20s%C3%B8r" target=_blank><img src=/theme/reddit-logo.svg alt=Reddit title=Reddit></a> </div><!-- sharing --> </article> <footer> <p>Lions Club Kråkerøy &copy; 2025 | Generert av <a href=https://pagegen.phnd.net><img src=/theme/pagegen_54x10.png></a> </footer> </body> </html> 

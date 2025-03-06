@@ -35,8 +35,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 map.zoomControl.setPosition('topright');
 
 var benchIcon = L.icon({
-  iconUrl: '/assets/theme/bench.svg',
-  shadowUrl: '/assets/theme/bench-shadow.svg',
+  iconUrl: '/theme/bench.svg',
+  shadowUrl: '/theme/bench-shadow.svg',
 
   //iconSize:     [61, 43], // size of the icon
   //shadowSize:   [57, 30], // size of the shadow
@@ -50,10 +50,10 @@ var benchIcon = L.icon({
 
 const markers = []
 
-% for p in site.page_list:
-   % if p.headers['template'] == 'benk.mako':
-markers.push(L.marker([${p.custom_headers['latitude']}, ${p.custom_headers['longitude']}],{title:"${p.title} benken"}).addTo(map).on('click', function(evt) {
-  window.open('${p.url_path}', '_self');
+% for p in site.index.values():
+   % if 'template' in p.headers.keys() and p.headers['template'] == 'benk':
+markers.push(L.marker([${p.headers['latitude']}, ${p.headers['longitude']}],{title:"${p.headers['title']} benken"}).addTo(map).on('click', function(evt) {
+  window.open('${p.relative_url}', '_self');
 }));
   % endif
 % endfor
