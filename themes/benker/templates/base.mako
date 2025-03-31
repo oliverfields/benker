@@ -47,8 +47,8 @@ ${tracking}
     <nav>
       <a href="/"><img width="41" height="40" src="/theme/lions-logo.png" id="header-logo" /></a>
       <a href="/">Benkene</a>
-      <a href="/dikt.html">Dikt</a>
       <a href="/krakeroy-guiden.html">Kråkerøy guiden</a>
+      <a href="/dikt.html">Dikt</a>
       <a href="/om-lions.html">Om Lions</a>
     </nav>
     <%block name="content" />
