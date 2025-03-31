@@ -6,4 +6,4 @@ Deploy by building site:
 $ pgn -g
 
 And pushing changes to prod branch:
-$ git push origin prod
+$ git push origin main:prod
