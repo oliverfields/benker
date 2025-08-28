@@ -55,6 +55,8 @@ ${tracking}
     <footer>
       <p>Lions Club Kråkerøy &copy; ${year} | Generert av <a href="https://pagegen.phnd.net"><img src="/theme/pagegen_54x10.png" /></a>
     </footer>
+    <% tracker = site.plugins['shortcodes']['hit_tracker'](site, page) %>
+    ${tracker}
   </body>
 </html>
 
