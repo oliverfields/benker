@@ -186,11 +186,14 @@ else {
 def hit_tracker(site, page):
     if not site.conf['site']['base_url'].startswith('http://localhost'):
 
+        track_id = 'a1b2'
+
         # Use js to track as it will include querystrings also
-        js = '<script>(function() { var img = new Image(1, 1); img.src = "https://phnd.net/hit.php?ref=" + encodeURIComponent(window.location.href); })(); </script>'
+        js = '<script>(function() { var id = "' + track_id + '"; var rel = window.location.pathname + window.location.search + window.location.hash; var url = "https://phnd.net/onemoretime.php?i=" + encodeURIComponent(id) + "&r=" + encodeURIComponent(rel); var img = new Image(1, 1); img.src = url; })();</script>'
 
         # If js not enabled then fall back to just tracking page url sans any query strings
-        no_js = '<noscript><img style="display: none;" src="https://phnd.net/hit.php?ref=' + quote_plus(page.absolute_url) + '"></noscript>'
+        no_js = '<noscript><img style="display: none;" src="https://phnd.net/hit.php?i=' + track_id + '&r=' + quote_plus(page.relative_url) + '"></noscript>'
+
 
         return js + no_js
 
