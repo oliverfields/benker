@@ -49,7 +49,7 @@ def benk_image_path(site, page, image_class="desktop"):
     golden_ratio = 1.61803399
 
     try:
-        crop_top_percent = float(page.custom_headers['hero crop top mobile'])
+        crop_top_percent = float(page.headers['hero crop top mobile'])
     except Exception as e:
         crop_top_percent = 0
 
