@@ -75,6 +75,8 @@ def benk_image_path(site, page, image_class="desktop"):
     img = resize_and_crop(img, conf)
     img.save(tgt_img_path_full, format='JPEG', subsampling=0, quality=95)
 
+    logger.info('Image created: ' + tgt_img_path_full)
+
     return resized_img_relative_url_path
 
 
